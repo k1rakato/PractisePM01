@@ -1,0 +1,488 @@
+-- DROP SCHEMA public;
+
+CREATE SCHEMA public AUTHORIZATION pg_database_owner;
+
+COMMENT ON SCHEMA public IS 'standard public schema';
+
+-- DROP SEQUENCE public.action_actionid_seq;
+
+CREATE SEQUENCE public.action_actionid_seq
+	INCREMENT BY 1
+	MINVALUE 1
+	MAXVALUE 2147483647
+	START 1
+	CACHE 1
+	NO CYCLE;
+
+-- Permissions
+
+ALTER SEQUENCE public.action_actionid_seq OWNER TO postgres;
+GRANT ALL ON SEQUENCE public.action_actionid_seq TO postgres;
+
+-- DROP SEQUENCE public.cities_idcity_seq;
+
+CREATE SEQUENCE public.cities_idcity_seq
+	INCREMENT BY 1
+	MINVALUE 1
+	MAXVALUE 2147483647
+	START 1
+	CACHE 1
+	NO CYCLE;
+
+-- Permissions
+
+ALTER SEQUENCE public.cities_idcity_seq OWNER TO postgres;
+GRANT ALL ON SEQUENCE public.cities_idcity_seq TO postgres;
+
+-- DROP SEQUENCE public.client_idclient_seq;
+
+CREATE SEQUENCE public.client_idclient_seq
+	INCREMENT BY 1
+	MINVALUE 1
+	MAXVALUE 2147483647
+	START 1
+	CACHE 1
+	NO CYCLE;
+
+-- Permissions
+
+ALTER SEQUENCE public.client_idclient_seq OWNER TO postgres;
+GRANT ALL ON SEQUENCE public.client_idclient_seq TO postgres;
+
+-- DROP SEQUENCE public.countries_idcountry_seq;
+
+CREATE SEQUENCE public.countries_idcountry_seq
+	INCREMENT BY 1
+	MINVALUE 1
+	MAXVALUE 2147483647
+	START 1
+	CACHE 1
+	NO CYCLE;
+
+-- Permissions
+
+ALTER SEQUENCE public.countries_idcountry_seq OWNER TO postgres;
+GRANT ALL ON SEQUENCE public.countries_idcountry_seq TO postgres;
+
+-- DROP SEQUENCE public.directions_iddirections_seq;
+
+CREATE SEQUENCE public.directions_iddirections_seq
+	INCREMENT BY 1
+	MINVALUE 1
+	MAXVALUE 2147483647
+	START 1
+	CACHE 1
+	NO CYCLE;
+
+-- Permissions
+
+ALTER SEQUENCE public.directions_iddirections_seq OWNER TO postgres;
+GRANT ALL ON SEQUENCE public.directions_iddirections_seq TO postgres;
+
+-- DROP SEQUENCE public.events_idevent_seq;
+
+CREATE SEQUENCE public.events_idevent_seq
+	INCREMENT BY 1
+	MINVALUE 1
+	MAXVALUE 2147483647
+	START 1
+	CACHE 1
+	NO CYCLE;
+
+-- Permissions
+
+ALTER SEQUENCE public.events_idevent_seq OWNER TO postgres;
+GRANT ALL ON SEQUENCE public.events_idevent_seq TO postgres;
+
+-- DROP SEQUENCE public.genders_idgender_seq;
+
+CREATE SEQUENCE public.genders_idgender_seq
+	INCREMENT BY 1
+	MINVALUE 1
+	MAXVALUE 2147483647
+	START 1
+	CACHE 1
+	NO CYCLE;
+
+-- Permissions
+
+ALTER SEQUENCE public.genders_idgender_seq OWNER TO postgres;
+GRANT ALL ON SEQUENCE public.genders_idgender_seq TO postgres;
+
+-- DROP SEQUENCE public.jury_juryid_seq;
+
+CREATE SEQUENCE public.jury_juryid_seq
+	INCREMENT BY 1
+	MINVALUE 1
+	MAXVALUE 2147483647
+	START 1
+	CACHE 1
+	NO CYCLE;
+
+-- Permissions
+
+ALTER SEQUENCE public.jury_juryid_seq OWNER TO postgres;
+GRANT ALL ON SEQUENCE public.jury_juryid_seq TO postgres;
+
+-- DROP SEQUENCE public.meropriatie_meropriatieid_seq;
+
+CREATE SEQUENCE public.meropriatie_meropriatieid_seq
+	INCREMENT BY 1
+	MINVALUE 1
+	MAXVALUE 2147483647
+	START 1
+	CACHE 1
+	NO CYCLE;
+
+-- Permissions
+
+ALTER SEQUENCE public.meropriatie_meropriatieid_seq OWNER TO postgres;
+GRANT ALL ON SEQUENCE public.meropriatie_meropriatieid_seq TO postgres;
+
+-- DROP SEQUENCE public.meropriatieandaction_meropriatandactionid_seq;
+
+CREATE SEQUENCE public.meropriatieandaction_meropriatandactionid_seq
+	INCREMENT BY 1
+	MINVALUE 1
+	MAXVALUE 2147483647
+	START 1
+	CACHE 1
+	NO CYCLE;
+
+-- Permissions
+
+ALTER SEQUENCE public.meropriatieandaction_meropriatandactionid_seq OWNER TO postgres;
+GRANT ALL ON SEQUENCE public.meropriatieandaction_meropriatandactionid_seq TO postgres;
+
+-- DROP SEQUENCE public.moders_moderid_seq;
+
+CREATE SEQUENCE public.moders_moderid_seq
+	INCREMENT BY 1
+	MINVALUE 1
+	MAXVALUE 2147483647
+	START 1
+	CACHE 1
+	NO CYCLE;
+
+-- Permissions
+
+ALTER SEQUENCE public.moders_moderid_seq OWNER TO postgres;
+GRANT ALL ON SEQUENCE public.moders_moderid_seq TO postgres;
+
+-- DROP SEQUENCE public.organizers_idorganizer_seq;
+
+CREATE SEQUENCE public.organizers_idorganizer_seq
+	INCREMENT BY 1
+	MINVALUE 1
+	MAXVALUE 2147483647
+	START 1
+	CACHE 1
+	NO CYCLE;
+
+-- Permissions
+
+ALTER SEQUENCE public.organizers_idorganizer_seq OWNER TO postgres;
+GRANT ALL ON SEQUENCE public.organizers_idorganizer_seq TO postgres;
+-- public."action" определение
+
+-- Drop table
+
+-- DROP TABLE public."action";
+
+CREATE TABLE public."action" (
+	actionid serial4 NOT NULL,
+	actionname text NULL,
+	CONSTRAINT action_pkey PRIMARY KEY (actionid)
+);
+
+-- Permissions
+
+ALTER TABLE public."action" OWNER TO postgres;
+GRANT ALL ON TABLE public."action" TO postgres;
+
+
+-- public.cities определение
+
+-- Drop table
+
+-- DROP TABLE public.cities;
+
+CREATE TABLE public.cities (
+	idcity serial4 NOT NULL,
+	cityname text NOT NULL,
+	cityimage text NOT NULL,
+	CONSTRAINT cities_pkey PRIMARY KEY (idcity)
+);
+
+-- Permissions
+
+ALTER TABLE public.cities OWNER TO postgres;
+GRANT ALL ON TABLE public.cities TO postgres;
+
+
+-- public.countries определение
+
+-- Drop table
+
+-- DROP TABLE public.countries;
+
+CREATE TABLE public.countries (
+	idcountry serial4 NOT NULL,
+	countryname text NOT NULL,
+	countrynameeng text NOT NULL,
+	firstcode bpchar(5) NOT NULL,
+	secondcode int4 NOT NULL,
+	CONSTRAINT countries_pkey PRIMARY KEY (idcountry)
+);
+
+-- Permissions
+
+ALTER TABLE public.countries OWNER TO postgres;
+GRANT ALL ON TABLE public.countries TO postgres;
+
+
+-- public.directions определение
+
+-- Drop table
+
+-- DROP TABLE public.directions;
+
+CREATE TABLE public.directions (
+	iddirections serial4 NOT NULL,
+	directionsname text NOT NULL,
+	CONSTRAINT directions_pkey PRIMARY KEY (iddirections)
+);
+
+-- Permissions
+
+ALTER TABLE public.directions OWNER TO postgres;
+GRANT ALL ON TABLE public.directions TO postgres;
+
+
+-- public.events определение
+
+-- Drop table
+
+-- DROP TABLE public.events;
+
+CREATE TABLE public.events (
+	idevent serial4 NOT NULL,
+	eventname text NOT NULL,
+	CONSTRAINT events_pkey PRIMARY KEY (idevent)
+);
+
+-- Permissions
+
+ALTER TABLE public.events OWNER TO postgres;
+GRANT ALL ON TABLE public.events TO postgres;
+
+
+-- public.genders определение
+
+-- Drop table
+
+-- DROP TABLE public.genders;
+
+CREATE TABLE public.genders (
+	idgender serial4 NOT NULL,
+	gendername text NOT NULL,
+	CONSTRAINT genders_pkey PRIMARY KEY (idgender)
+);
+
+-- Permissions
+
+ALTER TABLE public.genders OWNER TO postgres;
+GRANT ALL ON TABLE public.genders TO postgres;
+
+
+-- public.client определение
+
+-- Drop table
+
+-- DROP TABLE public.client;
+
+CREATE TABLE public.client (
+	idclient serial4 NOT NULL,
+	lastname varchar(100) NOT NULL,
+	firstname varchar(50) NOT NULL,
+	patronymic varchar(50) NOT NULL,
+	email text NOT NULL,
+	dateofbirth timestamp NOT NULL,
+	countryid int4 NOT NULL,
+	phone varchar(20) NOT NULL,
+	"password" text NOT NULL,
+	image text NOT NULL,
+	genderid int4 NOT NULL,
+	CONSTRAINT client_pkey PRIMARY KEY (idclient),
+	CONSTRAINT client_countryid_fkey FOREIGN KEY (countryid) REFERENCES public.countries(idcountry),
+	CONSTRAINT client_genderid_fkey FOREIGN KEY (genderid) REFERENCES public.genders(idgender)
+);
+
+-- Permissions
+
+ALTER TABLE public.client OWNER TO postgres;
+GRANT ALL ON TABLE public.client TO postgres;
+
+
+-- public.jury определение
+
+-- Drop table
+
+-- DROP TABLE public.jury;
+
+CREATE TABLE public.jury (
+	juryid serial4 NOT NULL,
+	lastname varchar(100) NOT NULL,
+	firstname varchar(50) NOT NULL,
+	patronymic varchar(50) NOT NULL,
+	genderid int4 NOT NULL,
+	email text NOT NULL,
+	dateofbirth timestamp NULL,
+	countryid int4 NULL,
+	phone varchar(20) NOT NULL,
+	directionsid int4 NULL,
+	"password" text NOT NULL,
+	foto text NULL,
+	CONSTRAINT jury_pkey PRIMARY KEY (juryid),
+	CONSTRAINT jury_countryid_fkey FOREIGN KEY (countryid) REFERENCES public.countries(idcountry),
+	CONSTRAINT jury_directionsid_fkey FOREIGN KEY (directionsid) REFERENCES public.directions(iddirections),
+	CONSTRAINT jury_genderid_fkey FOREIGN KEY (genderid) REFERENCES public.genders(idgender)
+);
+
+-- Permissions
+
+ALTER TABLE public.jury OWNER TO postgres;
+GRANT ALL ON TABLE public.jury TO postgres;
+
+
+-- public.meropriatie определение
+
+-- Drop table
+
+-- DROP TABLE public.meropriatie;
+
+CREATE TABLE public.meropriatie (
+	meropriatieid serial4 NOT NULL,
+	meropriatiename text NULL,
+	datemeropriatie timestamp NOT NULL,
+	cityid int4 NULL,
+	image text NULL,
+	eventid int4 NULL,
+	CONSTRAINT meropriatie_pkey PRIMARY KEY (meropriatieid),
+	CONSTRAINT meropriatie_cityid_fkey FOREIGN KEY (cityid) REFERENCES public.cities(idcity),
+	CONSTRAINT meropriatie_eventid_fkey FOREIGN KEY (eventid) REFERENCES public.events(idevent)
+);
+
+-- Permissions
+
+ALTER TABLE public.meropriatie OWNER TO postgres;
+GRANT ALL ON TABLE public.meropriatie TO postgres;
+
+
+-- public.moders определение
+
+-- Drop table
+
+-- DROP TABLE public.moders;
+
+CREATE TABLE public.moders (
+	moderid serial4 NOT NULL,
+	lastname varchar(100) NOT NULL,
+	firstname varchar(50) NOT NULL,
+	patronymic varchar(50) NOT NULL,
+	genderid int4 NOT NULL,
+	email text NOT NULL,
+	dateofbirth timestamp NULL,
+	countryid int4 NULL,
+	phone varchar(20) NOT NULL,
+	directionsid int4 NULL,
+	eventid int4 NOT NULL,
+	"password" text NOT NULL,
+	foto text NULL,
+	CONSTRAINT moders_pkey PRIMARY KEY (moderid),
+	CONSTRAINT moders_countryid_fkey FOREIGN KEY (countryid) REFERENCES public.countries(idcountry),
+	CONSTRAINT moders_directionsid_fkey FOREIGN KEY (directionsid) REFERENCES public.directions(iddirections),
+	CONSTRAINT moders_eventid_fkey FOREIGN KEY (eventid) REFERENCES public.events(idevent),
+	CONSTRAINT moders_genderid_fkey FOREIGN KEY (genderid) REFERENCES public.genders(idgender)
+);
+
+-- Permissions
+
+ALTER TABLE public.moders OWNER TO postgres;
+GRANT ALL ON TABLE public.moders TO postgres;
+
+
+-- public.organizers определение
+
+-- Drop table
+
+-- DROP TABLE public.organizers;
+
+CREATE TABLE public.organizers (
+	idorganizer serial4 NOT NULL,
+	lastname varchar(100) NOT NULL,
+	firstname varchar(50) NOT NULL,
+	patronymic varchar(50) NOT NULL,
+	email text NOT NULL,
+	dateofbirth timestamp NOT NULL,
+	countryid int4 NOT NULL,
+	phone varchar(20) NOT NULL,
+	"password" text NULL,
+	foto text NOT NULL,
+	genderid int4 NULL,
+	CONSTRAINT organizers_pkey PRIMARY KEY (idorganizer),
+	CONSTRAINT organizers_countryid_fkey FOREIGN KEY (countryid) REFERENCES public.countries(idcountry),
+	CONSTRAINT organizers_genderid_fkey FOREIGN KEY (genderid) REFERENCES public.genders(idgender)
+);
+
+-- Permissions
+
+ALTER TABLE public.organizers OWNER TO postgres;
+GRANT ALL ON TABLE public.organizers TO postgres;
+
+
+-- public.meropriatieandaction определение
+
+-- Drop table
+
+-- DROP TABLE public.meropriatieandaction;
+
+CREATE TABLE public.meropriatieandaction (
+	meropriatandactionid serial4 NOT NULL,
+	idmeropriatie int4 NULL,
+	startdate timestamp NOT NULL,
+	countdays int4 NULL,
+	idaction int4 NULL,
+	numberday int4 NULL,
+	timestart time NOT NULL,
+	idmoderator int4 NULL,
+	firstjury int4 NULL,
+	secondjury int4 NULL,
+	thirdjury int4 NULL,
+	fourthjury int4 NULL,
+	fifthjury int4 NULL,
+	winnerid int4 NULL,
+	CONSTRAINT meropriatieandaction_pkey PRIMARY KEY (meropriatandactionid),
+	CONSTRAINT meropriatieandaction_fifthjury_fkey FOREIGN KEY (fifthjury) REFERENCES public.jury(juryid),
+	CONSTRAINT meropriatieandaction_firstjury_fkey FOREIGN KEY (firstjury) REFERENCES public.jury(juryid),
+	CONSTRAINT meropriatieandaction_fourthjury_fkey FOREIGN KEY (fourthjury) REFERENCES public.jury(juryid),
+	CONSTRAINT meropriatieandaction_idaction_fkey FOREIGN KEY (idaction) REFERENCES public."action"(actionid),
+	CONSTRAINT meropriatieandaction_idmeropriatie_fkey FOREIGN KEY (idmeropriatie) REFERENCES public.meropriatie(meropriatieid),
+	CONSTRAINT meropriatieandaction_idmoderator_fkey FOREIGN KEY (idmoderator) REFERENCES public.moders(moderid),
+	CONSTRAINT meropriatieandaction_secondjury_fkey FOREIGN KEY (secondjury) REFERENCES public.jury(juryid),
+	CONSTRAINT meropriatieandaction_thirdjury_fkey FOREIGN KEY (thirdjury) REFERENCES public.jury(juryid),
+	CONSTRAINT meropriatieandaction_winnerid_fkey FOREIGN KEY (winnerid) REFERENCES public.client(idclient)
+);
+
+-- Permissions
+
+ALTER TABLE public.meropriatieandaction OWNER TO postgres;
+GRANT ALL ON TABLE public.meropriatieandaction TO postgres;
+
+
+
+
+-- Permissions
+
+GRANT ALL ON SCHEMA public TO pg_database_owner;
+GRANT USAGE ON SCHEMA public TO public;
